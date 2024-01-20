@@ -1,16 +1,16 @@
-import Header from './components/Header'
-import Section from './components/Section';
 
+import Header from './components/Header';
+import FeedbackItem from './components/FeedbackItem';
 
 function App() {
+
   return (
     <>
-      <Header title='This is the Header'/>
-      <Section>
-        <p>Merhaba</p>
-        <p>New World</p>
-      </Section>
-      <h1>Hello World</h1>
+      <Header/>
+      <div className="container">
+        <FeedbackItem/>
+      </div>
+      
     </>
   )
 }
