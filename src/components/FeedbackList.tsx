@@ -6,7 +6,7 @@ type ItemProps = {
   text: string;
 };
 
-type FeedbackListProps = {
+export type FeedbackListProps = {
   feedback : ItemProps[];
   handleDelete :(id:number)=>void
 }
@@ -15,7 +15,6 @@ const FeedbackList = ({feedback, handleDelete}: FeedbackListProps) => {
   if(!feedback || feedback.length === 0){
     return <p>No Feedback Yet</p>
   }
-
 
   return (
     <div className="feedback-list">
