@@ -1,7 +1,7 @@
 type HeaderProps = {
-  text: string,
-  bgColor : string,
-  textColor : string 
+  text?: string,
+  bgColor? : string,
+  textColor? : string 
 }
 
 const Header = ({text = 'Feedback UI', bgColor='rgba(0,0,0,4)', textColor= '#ff6a95'}: HeaderProps) => {

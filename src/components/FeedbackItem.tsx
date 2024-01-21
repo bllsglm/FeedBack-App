@@ -1,18 +1,25 @@
-import { useState } from "react"
+import { FaTimes } from "react-icons/fa";
+import Card from "./shared/Card";
 
+type ItemProps = {
+  id: number;
+  rating: number;
+  text: string;
+  handleDelete: (id:number) => void; 
+};
 
-const FeedbackItem = () => {
+const FeedbackItem = ({id, rating, text, handleDelete}: ItemProps) => {
 
-  const [rating, setRating] = useState(7)
-  const [text, setText] = useState('This is an example of a feedback item')
-  
   return (
-    <div className="card">
+    <Card>
       <div className="num-display">{rating}</div>
+      <button className="close" onClick={()=>handleDelete(id)}>
+        <FaTimes color="red"/>
+      </button>
       <div className="text-display">
         {text}
       </div>
-    </div>
+    </Card>
   )
 }
 
