@@ -1,8 +1,8 @@
-import { FeedbackListProps } from "./FeedbackList"
+import { useContext } from "react"
+import FeedbackContext from "./context/FeedbackContext"
 
-
-const FeedbackStats = ({feedback}: FeedbackListProps) => {
-
+const FeedbackStats = () => {
+  const { feedback } = useContext(FeedbackContext)!
 
   let average: number|string = feedback.reduce((acc,cur)=> acc + cur.rating,0)/ feedback.length
   

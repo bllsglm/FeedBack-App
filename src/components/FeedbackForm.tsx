@@ -1,16 +1,25 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Card from './shared/Card';
 import Button from './shared/Button';
 import RatingSelect from './RatingSelect';
 import { v4 as uuidv4 } from 'uuid';
+import { useContext } from 'react';
+import FeedbackContext from './context/FeedbackContext';
 
 
-type HandleAddProps = (feedback: {id:string|number; text: string; rating: number }) => void;
-
-
-const FeedbackForm = ({handleAdd}: {handleAdd: HandleAddProps}) => {
+const FeedbackForm = () => {
   const [text, setText] = useState('')
   const [rating, setRating] = useState(10)
+
+  const { addFeedback, feedBackEdit, updateFeedback } = useContext(FeedbackContext)!
+
+  useEffect(()=>{
+    if(feedBackEdit.edit === true ){
+      setText(feedBackEdit.item.text)
+      setRating(feedBackEdit.item.rating)
+    }
+  },[feedBackEdit])
+
 
   const handleTextChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setText(event.target.value)
@@ -26,7 +35,13 @@ const FeedbackForm = ({handleAdd}: {handleAdd: HandleAddProps}) => {
         id,
       };
       newFeedback.id= uuidv4()
-      handleAdd(newFeedback)
+
+      if(feedBackEdit.edit === true ){
+        updateFeedback(feedBackEdit.item.id, newFeedback)
+      }else{
+        addFeedback(newFeedback)
+      }
+      
       setText('')
     }
   }

@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import AboutPage from './pages/AboutPage';
 import Home from './pages/Home'
+import { FeedbackProvider } from './components/context/FeedbackContext';
 
 
 
@@ -21,7 +22,9 @@ const router = createBrowserRouter(
 
 ReactDOM.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <FeedbackProvider>
+      <RouterProvider router={router} />
+    </FeedbackProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
