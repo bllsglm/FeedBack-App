@@ -43,7 +43,7 @@ export const  FeedbackProvider = ({children}:FeedbackProviderType) => {
   ])
 
   const [feedBackEdit, setFeedbackEdit] = useState({
-    item :{},
+    item :{ text: '', rating: 0, id: '' },
     edit : false
   })
 

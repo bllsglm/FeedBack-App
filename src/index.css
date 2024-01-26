@@ -8,7 +8,7 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #202142;
+  background-color: #879b61;
   color: #fff;
   line-height: 1.6;
   height: 100vh; /*added later*/
@@ -88,7 +88,7 @@ header {
 
 .rating li:hover,
 .num-display {
-  background: #ff6a95;
+  background: #51d81c;
   color: #fff;
 }
 
@@ -97,7 +97,7 @@ header {
 }
 
 [type='radio']:checked ~ label {
-  background: #ff6a95;
+  background: #0f8b2a;
   color: #fff;
 }
 
